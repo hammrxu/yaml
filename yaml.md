@@ -25,7 +25,10 @@ Online source for validator:
 | Literal Style        | keep line breaks of a string|   \\       |after ": "  | 
 |                      |                            |             |            | 
 |    signal the start of a document   |                            |    ---      |      top of file   | 
-|      also seperate directives from document content                |                            |             |       ---     | 
+|    signal the end of a document   |                            |    ...      |      bottom of file   | 
+|    string value |                            |    "" or '' or without quotes      |      string value   | 
+|    boolean value |               |    true/on/yes or false/off/no      |      string value   |
+|    lists |              |   [-a,-b,-c]      |      list value   |
 
 
 |Type      | yamlCallIt           | weCallIt  | limitation |
@@ -33,6 +36,5 @@ Online source for validator:
 |defination       | stream               |    file   |            |
 |defination       | document             |    file   | file content  |
 |defination       | node                 |    node   |   can call repeat node     |
-
-
+|defination       | directives                 |    node   |   can call repeat node     |
 

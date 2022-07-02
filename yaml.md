@@ -21,14 +21,18 @@ Online source for validator:
 |Type      | yamlCallIt           | sytax      | where      | weCallIt  | limitation |
 |----      | ----                 | -----      | -----      | --------- | ---------- |
 |          | comment              | \#          |            |           |            |
-|def       | stream               |            |            |    file   |            |
-|def       | document             |            |            |    file   | file content  |
-|def       | node                 |            |            |    node   |   can call repeat node     |
+
 |node    | node denote          |   \&        |            |    declare variable |        |
 |node    | repeat node           |   \*        |            |    call variable value |    use without space    |
 |string    |     Literal Style    |   \\        |    after ": "         |   keep line breaks of a string |        |
 
 
+
+|Type      | yamlCallIt           | weCallIt  | limitation |
+|----      | ----                 | --------- | ---------- |
+|def       | stream               |    file   |            |
+|def       | document             |    file   | file content  |
+|def       | node                 |    node   |   can call repeat node     |
 
 
 

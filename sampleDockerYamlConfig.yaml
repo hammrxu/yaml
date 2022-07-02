@@ -1,3 +1,11 @@
+#The example application is composed of the following parts:
+
+# 2 services, backed by Docker images: webapp and database
+# 1 secret (HTTPS certificate), injected into the frontend
+# 1 configuration (HTTP), injected into the frontend
+# 1 persistent volume, attached to the backend
+# 2 networks
+
 services:
   frontend:
     image: awesome/webapp

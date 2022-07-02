@@ -18,21 +18,19 @@ Online source for validator:
 #colons separate key/value pairs 
 #and dashes are used to create “bulleted” lists
 
-|Type      | yamlCallIt           | sytax      | where      | weCallIt  | limitation |
-|----      | ----                 | -----      | -----      | --------- | ---------- |
-|          | comment              | \#          |            |           |            |
-
-|node    | node denote          |   \&        |            |    declare variable |        |
-|node    | repeat node           |   \*        |            |    call variable value |    use without space    |
-|string    |     Literal Style    |   \\        |    after ": "         |   keep line breaks of a string |        |
+| yamlCallIt           | sytax      | howToUse   | quickToRead(may not exact)  | 
+| ----                 | -----      | -----      | --------- | 
+| comment              | \#         |            |           |   
+| node denote          |   \&       |            |    declare variable |  
+| Literal Style        |   \\       |after ": "  |   keep line breaks of a string | 
 
 
 
 |Type      | yamlCallIt           | weCallIt  | limitation |
 |----      | ----                 | --------- | ---------- |
-|def       | stream               |    file   |            |
-|def       | document             |    file   | file content  |
-|def       | node                 |    node   |   can call repeat node     |
+|defination       | stream               |    file   |            |
+|defination       | document             |    file   | file content  |
+|defination       | node                 |    node   |   can call repeat node     |
 
 
 

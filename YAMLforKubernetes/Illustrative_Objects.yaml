@@ -1,0 +1,45 @@
+#use "kubectl apply" command in the kubectl command-line interface, passing the .yaml file as an argument
+# EXMAPLE LIKE: kubectl apply -f https://k8s.io/examples/application/deployment.yaml
+
+# Deployment Kubernete
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+        
+#another example deployment
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-demo
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+      - containerPort: 80
+#syntax
+---
+"metadata": {
+  "labels": {
+    "key1" : "value1",
+    "key2" : "value2"
+  }
+}

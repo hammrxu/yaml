@@ -19,7 +19,7 @@ Online source for validator:
 #and dashes are used to create “bulleted” lists
 
 |Type      | yamlCallIt           | sytax      | where      | weCallIt  | limitation |
-|****      | ****                 | *****      | *****      | ********* | ********** |
+|----      | ----                 | -----      | -----      | --------- | ---------- |
 |          | comment              | \#          |            |           |            |
 |def       | stream               |            |            |    file   |            |
 |def       | document             |            |            |    file   | file content  |

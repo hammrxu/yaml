@@ -1,0 +1,41 @@
+#deploy reference
+deploy:
+  placement:
+    constraints:
+      disktype: ssd
+    preferences:
+      datacenter: us-east
+  mode: replicated
+    replicas: 6
+  restart_policy:
+    condition: on-failure
+    delay: 5s
+    max_attempts: 3
+    window: 120s
+  update_config:
+    parallelism: 2
+    delay: 10s
+    order: stop-first
+  resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+          pids: 1
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+          devices:
+            - capabilities: ["nvidia-compute"]
+              driver: nvidia
+          devices:
+            - capabilities: ["tpu"]
+              count: 2
+          devices:
+            - capabilities: ["gpu"]
+              device_ids: ["GPU-f123d1c9-26bb-df9b-1c23-4a731f61d8c7"]
+          devices:
+            - capabilities: ["gpu"]
+              driver: gpuvendor
+              options:
+                virtualization: false
+    

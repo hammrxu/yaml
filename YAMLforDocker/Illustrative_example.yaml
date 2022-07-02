@@ -1,0 +1,122 @@
+---
+#Profiles
+services:
+  foo:
+    image: foo
+  bar:
+    image: bar
+    profiles:
+      - test
+  baz:
+    image: baz
+    depends_on:
+      - bar
+    profiles:
+      - test
+  zot:
+    image: zot
+    depends_on:
+      - bar
+    profiles:
+      - debug
+
+---
+#blkio_config
+services:
+  foo:
+    image: busybox
+    blkio_config:
+       weight: 300
+       weight_device:
+         - path: /dev/sda
+           weight: 400
+       device_read_bps:
+         - path: /dev/sdb
+           rate: '12mb'
+       device_read_iops:
+         - path: /dev/sdb
+           rate: 120
+       device_write_bps:
+         - path: /dev/sdb
+           rate: '1024k'
+       device_write_iops:
+         - path: /dev/sdb
+           rate: 30
+---
+#configs Short
+services:
+  redis:
+    image: redis:latest
+    configs:
+      - my_config
+configs:
+  my_config:
+    file: ./my_config.txt
+  my_other_config:
+    external: true
+---
+#configs Long
+services:
+  redis:
+    image: redis:latest
+    configs:
+      - source: my_config
+        target: /redis_config
+        uid: "103"
+        gid: "103"
+        mode: 0440
+configs:
+  my_config:
+    external: true
+  my_other_config:
+    external: true
+---
+#depends_on Short
+services:
+  web:
+    build: .
+    depends_on:
+      - db
+      - redis
+  redis:
+    image: redis
+  db:
+    image: postgres
+---
+#depends_on Long
+services:
+  web:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+  redis:
+    image: redis
+  db:
+    image: postgres
+---
+#secrets Short
+services:
+  frontend:
+    image: awesome/webapp
+    secrets:
+      - server-certificate
+secrets:
+  server-certificate:
+    file: ./server.cert
+---
+#secrets Long
+services:
+  frontend:
+    image: awesome/webapp
+    secrets:
+      - source: server-certificate
+        target: server.cert
+        uid: "103"
+        gid: "103"
+        mode: 0440
+secrets:
+  server-certificate:
+    external: true

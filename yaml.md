@@ -18,11 +18,11 @@ Online source for validator:
 #colons separate key/value pairs 
 #and dashes are used to create “bulleted” lists
 
-| yamlCallIt           | sytax      | howToUse   | quickToRead(may not exact)  | 
-| ----                 | -----      | -----      | --------- | 
-| comment              | \#         |            |           |   
-| node denote          |   \&       |            |    declare variable |  
-| Literal Style        |   \\       |after ": "  |   keep line breaks of a string | 
+| yamlCallIt           |quickToRead(may not exact)  |  sytax      | howToUse   | 
+| ----                 | -----                      | -----       | ---------  | 
+| comment              |                            |    \#       |            |          
+| node denote          | declare variable           |   \&        |            |   
+| Literal Style        | keep line breaks of a string|   \\       |after ": "  |   
 
 
 

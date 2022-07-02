@@ -1,0 +1,39 @@
+---
+services:
+  frontend:
+    image: awesome/webapp
+    build: ./webapp
+
+  backend:
+    image: awesome/database
+    build:
+      context: backend
+      dockerfile: ../backend.Dockerfile
+
+  custom:
+    build: ~/custom
+  ---
+  services:
+  webapp:
+    build: ./dir
+      context: .
+      dockerfile: webapp.Dockerfile
+      args:
+        GIT_COMMIT: cdc3b19
+      ssh: ["default"]  # mount the default ssh agent
+      cache_from:
+        - alpine:latest
+        - type=local,src=path/to/cache
+        - type=gha
+      cache_to: 
+        - user/app:cache
+        - type=local,dest=path/to/cache
+      extra_hosts:
+        - "somehost:162.242.195.82"
+        - "otherhost:50.31.209.229"
+      labels:
+        com.example.description: "Accounting webapp"
+        com.example.department: "Finance"
+        com.example.label-with-empty-value: ""
+      shm_size: '2gb'
+      target: prod

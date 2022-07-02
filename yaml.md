@@ -22,8 +22,10 @@ Online source for validator:
 | ----                 | -----                      | -----       | ---------  | 
 | comment              |                            |    \#       |            |          
 | node denote          | declare variable           |   \&        |            |   
-| Literal Style        | keep line breaks of a string|   \\       |after ": "  |   
-
+| Literal Style        | keep line breaks of a string|   \\       |after ": "  | 
+|                      |                            |             |            | 
+|    signal the start of a document   |                            |    ---      |      top of file   | 
+|      also seperate directives from document content                |                            |             |       ---     | 
 
 
 |Type      | yamlCallIt           | weCallIt  | limitation |
